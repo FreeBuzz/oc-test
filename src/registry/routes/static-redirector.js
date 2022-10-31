@@ -57,6 +57,9 @@ module.exports = function(repository) {
     if (fileInfo.gzip) {
       res.set('Content-Encoding', 'gzip');
     }
+    if (fileInfo.br) {
+      res.set('Content-Encoding', 'br');
+    }
 
     fileStream.on('open', () => {
       fileStream.pipe(res);
